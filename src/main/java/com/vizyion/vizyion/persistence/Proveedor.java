@@ -8,17 +8,24 @@ import java.util.List;
 @Table(name = "proveedor")
 public class Proveedor {
     @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Integer id;
     private String nitProveedor;
     private String nombre;
     @ManyToOne
+    
     @JoinColumn(name = "id_tipo_persona")
+    
     private TipoPersona tipoPersona;
     @ManyToOne
+    
     @JoinColumn(name = "id_municipio_fk")
+    
     private Municipio municipio;
     @ManyToMany
+    
     @JoinTable(name = "insumo_proveedor",
                joinColumns = @JoinColumn(name = "id_proveedor_fk"),
                inverseJoinColumns = @JoinColumn(name = "id_insumo_fk"))

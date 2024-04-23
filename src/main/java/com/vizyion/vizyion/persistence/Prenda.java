@@ -4,31 +4,46 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+
 @Entity
+
 @Table(name = "prenda")
 public class Prenda {
+    
     @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private BigDecimal valorUnitCop;
     private BigDecimal valorUnitUsd;
+    
     @ManyToOne
+    
     @JoinColumn(name = "id_estado_fk")
     private Estado estado;
+    
     @ManyToOne
+    
     @JoinColumn(name = "id_tipo_proteccion")
     private TipoProteccion tipoProteccion;
+    
     @ManyToOne
+    
     @JoinColumn(name = "id_genero_fk")
     private Genero genero;
     private String codigo;
+    
     @ManyToOne
+    
     @JoinColumn(name = "id_talla_fk")
     private Talla talla;
+    
     @ManyToOne
+    
     @JoinColumn(name = "id_color_fk")
     private Color color;
+    
     @OneToOne(mappedBy = "prenda")
     private Inventario inventario;
 

@@ -3,16 +3,24 @@ package com.vizyion.vizyion.persistence;
 import jakarta.persistence.*;
 
 @Entity
+
 @Table(name = "inventario_talla")
+
 public class InventarioTalla {
     @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Integer id;
     @ManyToOne
+    
     @JoinColumn(name = "id_inv_fk")
+    
     private Inventario inventario;
     @ManyToOne
+    
     @JoinColumn(name = "id_talla_fk")
+    
     private Talla talla;
 
     public Integer getId() {

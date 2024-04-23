@@ -3,14 +3,20 @@ package com.vizyion.vizyion.persistence;
 import jakarta.persistence.*;
 
 @Entity
+
 @Table(name = "municipio")
+
 public class Municipio {
     @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Integer id;
     private String nombre;
     @ManyToOne
+    
     @JoinColumn(name = "id_departamento_fk")
+    
     private Departamento departamento;
 
     public Integer getId() {

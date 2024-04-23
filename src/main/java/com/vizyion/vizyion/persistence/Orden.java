@@ -5,20 +5,30 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
+
 @Table(name = "orden")
+
 public class Orden {
     @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Integer id;
     private Date fecha;
     @ManyToOne
+    
     @JoinColumn(name = "id_empleado_fk")
+    
     private Empleado empleado;
     @ManyToOne
+    
     @JoinColumn(name = "id_cliente_fk")
+    
     private Cliente cliente;
     @ManyToOne
+    
     @JoinColumn(name = "id_estado_fk")
+    
     private Estado estado;
 
     public Integer getId() {

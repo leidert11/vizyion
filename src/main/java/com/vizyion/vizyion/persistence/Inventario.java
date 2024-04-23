@@ -5,17 +5,26 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+
 @Table(name = "inventario")
+
 public class Inventario {
     @Id
+    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Integer id;
     private String codInv;
     @OneToOne
+    
     @JoinColumn(name = "id_prenda_fk")
+    
     private Prenda prenda;
+
     private BigDecimal valorVtaCop;
+
     private BigDecimal valorVtaUsd;
+    
     private Integer cantidad;
 
     public Integer getId() {

@@ -8,13 +8,20 @@ import java.util.List;
 @Entity
 @Table(name = "insumo")
 public class Insumo {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     private Integer id;
+    
     private String nombre;
+    
     private String descripcion;
+    
     private BigDecimal valorUnitCop;
+    
     private BigDecimal valorUnitUsd;
+    
     @ManyToMany(mappedBy = "insumos")
     private List<Proveedor> proveedores;
 
