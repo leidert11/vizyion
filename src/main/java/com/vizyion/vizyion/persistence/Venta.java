@@ -2,6 +2,9 @@ package com.vizyion.vizyion.persistence;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.util.List;
+
 import java.util.Date;
 
 @Entity
@@ -10,7 +13,7 @@ public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Date fecha;
+    private LocalDate fecha;
     @ManyToOne
     @JoinColumn(name = "id_empleado_fk")
     private Empleado empleado;
@@ -20,6 +23,8 @@ public class Venta {
     @ManyToOne
     @JoinColumn(name = "id_forma_pago_fk")
     private FormaPago formaPago;
+    @OneToMany(mappedBy = "venta")
+    private List<DetalleVenta> detalleVenta;
 
     public Integer getId() {
         return id;
@@ -29,11 +34,11 @@ public class Venta {
         this.id = id;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

@@ -22,5 +22,9 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
     + "FROM Empleado e "
     + "JOIN e.ventas v "
     + "GROUP BY e.nombre")
-List<Object[]> findCantidadVentasPorEmpleado();
+    List<Object[]> findCantidadVentasPorEmpleado();
+
+    @Query("SELECT e.nombre, TIMESTAMPDIFF(YEAR, e.fechaIngreso, CURRENT_DATE) AS aniosEmpleado "
+    + "FROM Empleado e")
+    List<Object[]> findEmpleadosConAniosEmpleados();
 }

@@ -20,4 +20,9 @@ public class VentaController {
     public List<Object[]> getVentasConClienteYFormaPago() {
         return ventaService.getAllVentasConClienteYFormaPago();
     }
+
+    @GetMapping("/clientes-en-fecha-actual")
+    public List<Object[]> getClientesConCantidadArticulosEnFechaActual() {
+        return ventaService.getClientesConCantidadArticulosEnFechaActual();
+    }
 }

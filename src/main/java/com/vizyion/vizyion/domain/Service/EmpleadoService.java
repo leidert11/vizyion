@@ -24,4 +24,7 @@ public class EmpleadoService {
     public List<Object[]> getCantidadVentasPorEmpleado() {
         return empleadoRepository.findCantidadVentasPorEmpleado();
     }
+    public List<Object[]> getEmpleadosConAniosEmpleados() {
+        return empleadoRepository.findEmpleadosConAniosEmpleados();
+    }
 }

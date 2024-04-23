@@ -16,4 +16,8 @@ public class VentaService {
     public List<Object[]> getAllVentasConClienteYFormaPago() {
         return ventaRepository.findAllVentasConClienteYFormaPago();
     }
+
+    public List<Object[]> getClientesConCantidadArticulosEnFechaActual() {
+        return ventaRepository.findClientesConCantidadArticulosEnFechaActual();
+    }
 }

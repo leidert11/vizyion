@@ -14,4 +14,12 @@ public interface VentaRepository extends JpaRepository<Venta, Integer> {
             + "JOIN v.cliente c "
             + "JOIN v.formaPago fp")
     List<Object[]> findAllVentasConClienteYFormaPago();
+
+    @Query("SELECT c.nombre, COUNT(dv.id) AS cantidadArticulos "
+    + "FROM Venta v "
+    + "JOIN v.cliente c "
+    + "JOIN v.detalleVenta dv "
+    + "WHERE v.fecha = CURRENT_DATE "
+    + "GROUP BY c.nombre")
+    List<Object[]> findClientesConCantidadArticulosEnFechaActual();
 }

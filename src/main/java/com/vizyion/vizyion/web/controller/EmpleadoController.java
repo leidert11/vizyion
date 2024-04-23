@@ -30,4 +30,9 @@ public class EmpleadoController {
     public List<Object[]> getVentasPorEmpleado() {
         return empleadoService.getCantidadVentasPorEmpleado();
     }
+    
+    @GetMapping("/con-anios-empleados")
+    public List<Object[]> getEmpleadosConAniosEmpleados() {
+        return empleadoService.getEmpleadosConAniosEmpleados();
+    }
 }
